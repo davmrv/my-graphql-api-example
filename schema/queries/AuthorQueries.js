@@ -1,13 +1,13 @@
-import { GraphQLID, GraphQLList } from 'graphql';
-import AuthorResolver from '../resolvers/AuthorResolver';
-import AuthorType from '../types/AuthorType';
-import Author from '../models/Author';
+import { GraphQLID, GraphQLList } from 'graphql'
+import AuthorResolver from '../resolvers/AuthorResolver'
+import AuthorType from '../types/AuthorType'
+import Author from '../models/Author'
 
 export default {
   authors: {
     type: GraphQLList(AuthorType),
     resolve() {
-      return Author.findAll({});
+      return Author.findAll({})
     },
   },
   author: {
@@ -18,7 +18,7 @@ export default {
       },
     },
     resolve(_, { id }) {
-      return Author.findOne({ id });
-    }
-  }
-};
+      return Author.findOne({ where: { id } })
+    },
+  },
+}

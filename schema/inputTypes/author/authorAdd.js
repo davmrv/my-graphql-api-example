@@ -5,7 +5,7 @@ import {
 
 const authorAdd = new GraphQLInputObjectType({
   name: 'authorAdd',
-  description: 'Author Add',
+  description: 'Add an author',
   fields: () => ({
     name: {
       type: GraphQLString,

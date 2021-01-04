@@ -1,12 +1,13 @@
-import { GraphQLID, GraphQLList } from 'graphql';
+import { GraphQLID, GraphQLList } from 'graphql'
 import PostType from '../types/PostType'
-import PostResolver from '../resolvers/PostResolver';
+import PostResolver from '../resolvers/PostResolver'
+import Post from '../models/Post'
 
 export default {
   posts: {
     type: GraphQLList(PostType),
     resolve() {
-      return PostResolver.all;
+      return Post.findAll({})
     },
   },
   post: {
@@ -17,7 +18,7 @@ export default {
       },
     },
     resolve(_, { id }) {
-      return PostResolver.single(parseInt(id));
-    }
-  }
-};
+      return Post.findOne({ where: { id } })
+    },
+  },
+}

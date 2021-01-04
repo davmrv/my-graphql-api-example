@@ -1,6 +1,5 @@
-import { GraphQLObjectType, GraphQLString } from 'graphql';
+import { GraphQLObjectType } from 'graphql';
 import authorAdd from '../inputTypes/author/authorAdd';
-import AuthorResolver from '../resolvers/AuthorResolver';
 import AuthorType from '../types/AuthorType';
 import Author from '../models/Author';
 
